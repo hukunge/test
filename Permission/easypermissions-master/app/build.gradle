@@ -1,0 +1,28 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion compileSdk
+    buildToolsVersion buildTools
+
+    defaultConfig {
+        applicationId "pub.devrel.easypermissions.sample"
+        minSdkVersion 14
+        targetSdkVersion targetSdk
+        versionCode 1
+        versionName "1.0"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    buildToolsVersion '26.0.2'
+}
+
+dependencies {
+    implementation "com.android.support:appcompat-v7:$support_library_version"
+
+    implementation project(':easypermissions')
+}

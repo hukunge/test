@@ -1,0 +1,21 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#eeee33">
+
+    <TextView
+        android:id="@+id/iv_num_frag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fragment name"
+        android:layout_centerInParent="true"/>
+
+    <Button
+        android:id="@+id/next_fragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Next fragment"
+        android:layout_below="@+id/iv_num_frag"
+        android:layout_centerHorizontal="true"/>
+
+</RelativeLayout>
