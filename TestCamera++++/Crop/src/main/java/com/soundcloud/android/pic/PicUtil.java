@@ -18,6 +18,10 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 
 /**
  * Created by dubin on 2017/4/22.
@@ -135,5 +139,49 @@ public class PicUtil {
             }
         }
         return result;
+    }
+
+    public static String getBase64(final Context ctx, final Uri uri, final float f) {
+        ExecutorService pool = Executors.newCachedThreadPool();
+        try {
+            Callable call = new Callable<String>() {
+                @Override
+                public String call() throws Exception {
+                    String tp;
+
+                    Bitmap b1 = PicUtil.uriToBitmap(ctx, uri);
+
+                    if(f >= 1.0f){//不压缩
+                        tp = PicUtil.bitmapToBase64(b1);
+                    }else {
+                        Bitmap b2 = PicUtil.compressIcon(b1, f);
+                        tp = PicUtil.bitmapToBase64(b2);
+                    }
+
+                    return tp;
+                }
+            };
+
+            Future<String> future = pool.submit(call);
+            pool.shutdown();
+
+            if (future.get() == null) {
+                return null;
+            } else {
+                return future.get();
+            }
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    public static Uri getContentUri(Context ctx, String authority, File file) {
+        Uri contentUri;
+        if (Build.VERSION.SDK_INT >= 24) {
+            contentUri = FileProvider.getUriForFile(ctx, authority, file);
+        } else {
+            contentUri = Uri.fromFile(file);
+        }
+        return contentUri;
     }
 }

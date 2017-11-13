@@ -19,14 +19,10 @@ import java.io.File;
 public class MainActivity extends AppCompatActivity {
     private static final String fileName = "capture.png";
 
-    private TextView tvResult;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        tvResult = findViewById(R.id.tv_result);
     }
 
     public void picTest(View view) {

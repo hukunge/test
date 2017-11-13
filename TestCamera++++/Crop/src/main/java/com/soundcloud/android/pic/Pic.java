@@ -85,63 +85,19 @@ public class Pic {
             }
         } else if (requestCode == Crop.REQUEST_CROP) {//after crop
             if (resultCode == act.RESULT_OK) {
-                String s = getBase64(act, Crop.getOutput(data), f);
+                String s = PicUtil.getBase64(act, Crop.getOutput(data), f);
                 if (info != null) info.result(s);
             } else if (resultCode == Crop.RESULT_ERROR) {
                 if (info != null) info.err(Crop.getError(data).getMessage());
             }
         } else if (requestCode == REQUEST_CODE_CAMERA) {//after camera
             if(resultCode == act.RESULT_OK){
-                Uri uri = getContentUri(act, act.getPackageName() + AUTHORITY, file);
+                Uri uri = PicUtil.getContentUri(act, act.getPackageName() + AUTHORITY, file);
                 new RotaingSaveTask(act, uri, file).execute();
             }else {
                 if (info != null) info.err("请打开权限");
             }
         }
-    }
-
-    private static String getBase64(final Context ctx, final Uri uri, final float f) {
-        ExecutorService pool = Executors.newCachedThreadPool();
-        try {
-            Callable call = new Callable<String>() {
-                @Override
-                public String call() throws Exception {
-                    String tp;
-
-                    Bitmap b1 = PicUtil.uriToBitmap(ctx, uri);
-
-                    if(f >= 1.0f){//不压缩
-                        tp = PicUtil.bitmapToBase64(b1);
-                    }else {
-                        Bitmap b2 = PicUtil.compressIcon(b1, f);
-                        tp = PicUtil.bitmapToBase64(b2);
-                    }
-
-                    return tp;
-                }
-            };
-
-            Future<String> future = pool.submit(call);
-            pool.shutdown();
-
-            if (future.get() == null) {
-                return null;
-            } else {
-                return future.get();
-            }
-        } catch (Exception e) {
-            return null;
-        }
-    }
-
-    private static Uri getContentUri(Context ctx, String authority, File file) {
-        Uri contentUri;
-        if (Build.VERSION.SDK_INT >= 24) {
-            contentUri = FileProvider.getUriForFile(ctx, authority, file);
-        } else {
-            contentUri = Uri.fromFile(file);
-        }
-        return contentUri;
     }
 
     @SuppressLint("NewApi")
