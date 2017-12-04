@@ -1,4 +1,4 @@
-package com.test.pic.gallery;
+package com.soundcloud.android.gallery;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -8,7 +8,7 @@ import android.widget.GridView;
 import com.soundcloud.android.crop.R;
 
 /**
- * Created by Administrator on 2017/12/4.
+ * Created by kellan on 2017/12/4.
  */
 
 public class GalleryActivity extends Activity{

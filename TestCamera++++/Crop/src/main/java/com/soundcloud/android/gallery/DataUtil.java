@@ -1,11 +1,10 @@
-package com.test.pic.gallery;
+package com.soundcloud.android.gallery;
 
 import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
 import android.provider.MediaStore;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Callable;
@@ -14,7 +13,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
 /**
- * Created by Administrator on 2017/12/4.
+ * Created by kellan on 2017/12/4.
  */
 
 public class DataUtil {

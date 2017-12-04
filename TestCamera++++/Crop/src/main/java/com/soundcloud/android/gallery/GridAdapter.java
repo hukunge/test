@@ -1,7 +1,6 @@
-package com.test.pic.gallery;
+package com.soundcloud.android.gallery;
 
 import android.app.Activity;
-import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -9,13 +8,11 @@ import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.soundcloud.android.crop.R;
-import com.test.pic.App;
 
-import java.io.File;
 import java.util.List;
 
 /**
- * Created by Administrator on 2017/12/4.
+ * Created by kellan on 2017/12/4.
  */
 
 public class GridAdapter extends BaseAdapter {

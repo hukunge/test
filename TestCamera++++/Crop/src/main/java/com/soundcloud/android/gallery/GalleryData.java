@@ -1,11 +1,11 @@
-package com.test.pic.gallery;
+package com.soundcloud.android.gallery;
 
 import android.net.Uri;
 
 import java.io.File;
 
 /**
- * Created by Administrator on 2017/12/4.
+ * Created by kellan on 2017/12/4.
  */
 
 public class GalleryData {
@@ -16,8 +16,4 @@ public class GalleryData {
     public GalleryData(Uri uri) {
         this.uri = uri;
     }
-
-//    public GalleryData(File file) {
-//        this.file = file;
-//    }
 }

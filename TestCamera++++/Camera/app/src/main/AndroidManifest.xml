@@ -25,7 +25,7 @@
         <activity android:name="com.soundcloud.android.crop.CropImageActivity" />
 
         <!--gallery activity-->
-        <activity android:name="com.test.pic.gallery.GalleryActivity"/>
+        <activity android:name="com.soundcloud.android.gallery.GalleryActivity"/>
 
         <provider
             android:name="android.support.v4.content.FileProvider"

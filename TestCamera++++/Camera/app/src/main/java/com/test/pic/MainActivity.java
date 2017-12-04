@@ -7,13 +7,12 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
 import com.soundcloud.android.crop.Crop;
+import com.soundcloud.android.gallery.GalleryActivity;
 import com.soundcloud.android.pic.Pic;
 import com.soundcloud.android.pic.PickDialog;
 import com.soundcloud.android.pic.PickInfo;
 import com.soundcloud.android.pic.ResultInfo;
-import com.test.pic.gallery.GalleryActivity;
 
 import java.io.File;
 
