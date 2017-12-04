@@ -4,20 +4,14 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
-import android.media.ExifInterface;
 import android.net.Uri;
 import android.os.Build;
 import android.provider.MediaStore;
 import android.support.v4.content.FileProvider;
 import android.util.Base64;
-
-import com.soundcloud.android.crop.CropUtil;
-
 import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -28,6 +22,8 @@ import java.util.concurrent.Future;
  */
 
 public class PicUtil {
+
+    private PicUtil(){}
 
     public static Bitmap getBitemapFromFile(String fileName) {
         try {

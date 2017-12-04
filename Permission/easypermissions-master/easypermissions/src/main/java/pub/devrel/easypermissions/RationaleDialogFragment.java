@@ -22,16 +22,13 @@ public class RationaleDialogFragment extends DialogFragment {
     private PermissionCallbacks mPermissionCallbacks;
     private boolean mStateSaved = false;
 
-    public static RationaleDialogFragment newInstance(
-            @StringRes int positiveButton, @StringRes int negativeButton,
-            @NonNull String rationaleMsg, int requestCode, @NonNull String[] permissions) {
+    public static RationaleDialogFragment newInstance(@NonNull String rationaleMsg, int requestCode, @NonNull String[] permissions) {
 
         // Create new Fragment
         RationaleDialogFragment dialogFragment = new RationaleDialogFragment();
 
         // Initialize configuration as arguments
-        RationaleDialogConfig config = new RationaleDialogConfig(
-                positiveButton, negativeButton, rationaleMsg, requestCode, permissions);
+        RationaleDialogConfig config = new RationaleDialogConfig(rationaleMsg, requestCode, permissions);
         dialogFragment.setArguments(config.toBundle());
 
         return dialogFragment;

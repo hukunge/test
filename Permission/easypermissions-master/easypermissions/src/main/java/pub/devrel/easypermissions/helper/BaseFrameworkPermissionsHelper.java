@@ -17,7 +17,7 @@ public abstract class BaseFrameworkPermissionsHelper<T> extends PermissionHelper
     public abstract FragmentManager getFragmentManager();
 
     @Override
-    public void showRequestPermissionRationale(@NonNull String rationale, int positiveButton, int negativeButton, int requestCode, @NonNull String... perms) {
-        RationaleDialogFragment.newInstance(positiveButton, negativeButton, rationale, requestCode, perms).showAllowingStateLoss(getFragmentManager(), RationaleDialogFragment.TAG);
+    public void showRequestPermissionRationale(@NonNull String rationale,int requestCode, @NonNull String... perms) {
+        RationaleDialogFragment.newInstance(rationale, requestCode, perms).showAllowingStateLoss(getFragmentManager(), RationaleDialogFragment.TAG);
     }
 }

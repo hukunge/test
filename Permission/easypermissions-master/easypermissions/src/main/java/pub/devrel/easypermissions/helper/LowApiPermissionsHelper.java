@@ -23,7 +23,7 @@ class LowApiPermissionsHelper extends PermissionHelper<Object> {
     }
 
     @Override
-    public void showRequestPermissionRationale(@NonNull String rationale, int positiveButton, int negativeButton, int requestCode, @NonNull String... perms) {
+    public void showRequestPermissionRationale(@NonNull String rationale, int requestCode, @NonNull String... perms) {
         throw new IllegalStateException("Should never be requesting permissions on API < 23!");
     }
 

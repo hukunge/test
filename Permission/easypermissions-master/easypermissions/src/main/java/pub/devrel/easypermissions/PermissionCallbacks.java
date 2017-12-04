@@ -5,7 +5,7 @@ import android.support.v4.app.ActivityCompat;
 import java.util.List;
 
 /**
- * Callback interface to receive the results of {@code EasyPermissions.requestPermissions()}
+ * Callback interface to receive the results of {@code EasyPermissions.request()}
  * calls.
  */
 public interface PermissionCallbacks extends ActivityCompat.OnRequestPermissionsResultCallback {

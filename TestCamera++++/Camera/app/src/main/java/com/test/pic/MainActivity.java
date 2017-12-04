@@ -1,28 +1,31 @@
 package com.test.pic;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.TextView;
+import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.soundcloud.android.crop.Crop;
 import com.soundcloud.android.pic.Pic;
 import com.soundcloud.android.pic.PickDialog;
 import com.soundcloud.android.pic.PickInfo;
 import com.soundcloud.android.pic.ResultInfo;
+import com.test.pic.gallery.GalleryActivity;
 
 import java.io.File;
 
 public class MainActivity extends AppCompatActivity {
     private static final String fileName = "capture.png";
-
+    private ImageView img;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        img = findViewById(R.id.test_img);
     }
 
     public void picTest(View view) {
@@ -58,5 +61,10 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, "base64 succ", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    public void galleryTest(View view) {
+        Intent i = new Intent(MainActivity.this, GalleryActivity.class);
+        startActivity(i);
     }
 }

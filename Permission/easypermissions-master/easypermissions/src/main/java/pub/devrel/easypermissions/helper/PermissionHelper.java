@@ -66,9 +66,9 @@ public abstract class PermissionHelper<T> {
         return false;
     }
 
-    public void requestPermissions(@NonNull String rationale, @StringRes int positiveButton, @StringRes int negativeButton, int requestCode, @NonNull String... perms) {
+    public void requestPermissions(@NonNull String rationale, int requestCode, @NonNull String... perms) {
         if (shouldShowRationale(perms)) {
-            showRequestPermissionRationale(rationale, positiveButton, negativeButton, requestCode, perms);
+            showRequestPermissionRationale(rationale, requestCode, perms);
         } else {
             directRequestPermissions(requestCode, perms);
         }
@@ -105,7 +105,7 @@ public abstract class PermissionHelper<T> {
 
     public abstract boolean shouldShowRequestPermissionRationale(@NonNull String perm);
 
-    public abstract void showRequestPermissionRationale(@NonNull String rationale, @StringRes int positiveButton, @StringRes int negativeButton, int requestCode, @NonNull String... perms);
+    public abstract void showRequestPermissionRationale(@NonNull String rationale, int requestCode, @NonNull String... perms);
 
     public abstract Context getContext();
 

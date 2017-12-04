@@ -24,12 +24,11 @@ class RationaleDialogConfig {
     String rationaleMsg;
     String[] permissions;
 
-    RationaleDialogConfig(@StringRes int positiveButton, @StringRes int negativeButton,
-                          @NonNull String rationaleMsg, int requestCode,
+    RationaleDialogConfig(@NonNull String rationaleMsg, int requestCode,
                           @NonNull String[] permissions) {
 
-        this.positiveButton = positiveButton;
-        this.negativeButton = negativeButton;
+        this.positiveButton = android.R.string.ok;
+        this.negativeButton = android.R.string.cancel;
         this.rationaleMsg = rationaleMsg;
         this.requestCode = requestCode;
         this.permissions = permissions;

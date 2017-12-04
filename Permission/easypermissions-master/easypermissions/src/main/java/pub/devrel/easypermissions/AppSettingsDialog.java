@@ -239,43 +239,6 @@ public class AppSettingsDialog implements Parcelable {
         }
 
         /**
-         * Set the positive button text, default is {@link android.R.string#ok}.
-         */
-        public Builder setPositiveButton(String text) {
-            mPositiveButtonText = text;
-            return this;
-        }
-
-        /**
-         * Set the positive button text, default is {@link android.R.string#ok}.
-         */
-        public Builder setPositiveButton(@StringRes int textId) {
-            mPositiveButtonText = mContext.getString(textId);
-            return this;
-        }
-
-        /**
-         * Set the negative button text, default is {@link android.R.string#cancel}.
-         * <p>
-         * To know if a user cancelled the request, check if your permissions were given with {@link
-         * EasyPermissions#hasPermissions(Context, String...)} in {@link
-         * Activity#onActivityResult(int, int, Intent)}. If you still don't have the right
-         * permissions, then the request was cancelled.
-         */
-        public Builder setNegativeButton(String text) {
-            mNegativeButtonText = text;
-            return this;
-        }
-
-        /**
-         * Set the negative button text, default is {@link android.R.string#cancel}.
-         */
-        public Builder setNegativeButton(@StringRes int textId) {
-            mNegativeButtonText = mContext.getString(textId);
-            return this;
-        }
-
-        /**
          * Set the request code use when launching the Settings screen for result, can be retrieved
          * in the calling Activity's {@link Activity#onActivityResult(int, int, Intent)} method.
          * Default is {@link #DEFAULT_SETTINGS_REQ_CODE}.

@@ -20,12 +20,12 @@ public class RationaleDialogFragmentCompat extends AppCompatDialogFragment {
 
     private PermissionCallbacks mPermissionCallbacks;
 
-    public static RationaleDialogFragmentCompat newInstance(@StringRes int positiveButton, @StringRes int negativeButton, @NonNull String rationaleMsg, int requestCode, @NonNull String[] permissions) {
+    public static RationaleDialogFragmentCompat newInstance(@NonNull String rationaleMsg, int requestCode, @NonNull String[] permissions) {
         // Create new Fragment
         RationaleDialogFragmentCompat dialogFragment = new RationaleDialogFragmentCompat();
 
         // Initialize configuration as arguments
-        RationaleDialogConfig config = new RationaleDialogConfig(positiveButton, negativeButton, rationaleMsg, requestCode, permissions);
+        RationaleDialogConfig config = new RationaleDialogConfig(rationaleMsg, requestCode, permissions);
         dialogFragment.setArguments(config.toBundle());
 
         return dialogFragment;
