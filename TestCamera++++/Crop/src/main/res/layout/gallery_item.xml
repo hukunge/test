@@ -10,7 +10,9 @@
         android:scaleType="centerCrop" />
 
     <ImageView
-        android:id="@+id/view_alpha"
+        android:id="@+id/select"
         android:layout_width="20dp"
-        android:layout_height="20dp" />
+        android:layout_height="20dp"
+        android:layout_alignRight="@id/image_view_image_select"
+        android:src="@drawable/crop__ic_cancel"/>
 </RelativeLayout>
