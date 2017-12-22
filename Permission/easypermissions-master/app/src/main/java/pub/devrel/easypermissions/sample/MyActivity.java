@@ -27,39 +27,57 @@ public class MyActivity extends BaseActivity {
     public void clickCamera(View view) {
 
         EasyPermissions.of(this)
-                .rationale("rationale")
                 .reqCode(RequestCode.CAMERA)
                 .perms(Manifest.permission.CAMERA)
                 .callBack(new PermissionInfo() {
                     @Override
                     public void onGranted(List<String> perms) {
-                        Toast.makeText(MyActivity.this, "onGranted", Toast.LENGTH_SHORT).show();
+                        StringBuilder sb = new StringBuilder();
+                        for (String per : perms){
+                            sb.append(per + " ");
+                        }
+
+                        Toast.makeText(MyActivity.this, "onGranted " + sb.toString().trim(), Toast.LENGTH_SHORT).show();
                     }
 
                     @Override
                     public void onDenied(List<String> perms) {
-                        Toast.makeText(MyActivity.this, "onDenied", Toast.LENGTH_SHORT).show();
+                        StringBuilder sb = new StringBuilder();
+                        for (String per : perms){
+                            sb.append(per + " ");
+                        }
+
+                        Toast.makeText(MyActivity.this, "onDenied " + sb.toString().trim(), Toast.LENGTH_SHORT).show();
                     }
-                }).request();
+                });
     }
 
     public void clickLocContacts(View view) {
         String[] LOCATION_AND_CONTACTS = {Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.READ_CONTACTS};
 
         EasyPermissions.of(this)
-                .rationale("rationale")
                 .reqCode(RequestCode.All)
                 .perms(LOCATION_AND_CONTACTS)
                 .callBack(new PermissionInfo() {
                     @Override
                     public void onGranted(List<String> perms) {
-                        Toast.makeText(MyActivity.this, "onGranted", Toast.LENGTH_SHORT).show();
+                        StringBuilder sb = new StringBuilder();
+                        for (String per : perms){
+                            sb.append(per + " ");
+                        }
+
+                        Toast.makeText(MyActivity.this, "onGranted " + sb.toString().trim(), Toast.LENGTH_SHORT).show();
                     }
 
                     @Override
                     public void onDenied(List<String> perms) {
-                        Toast.makeText(MyActivity.this, "onDenied", Toast.LENGTH_SHORT).show();
+                        StringBuilder sb = new StringBuilder();
+                        for (String per : perms){
+                            sb.append(per + " ");
+                        }
+
+                        Toast.makeText(MyActivity.this, "onDenied " + sb.toString().trim(), Toast.LENGTH_SHORT).show();
                     }
-                }).request();
+                });
     }
 }

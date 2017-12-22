@@ -3,12 +3,6 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     package="pub.devrel.easypermissions">
 
-    <application>
-        <activity
-            android:name="pub.devrel.easypermissions.AppSettingsDialogHolderActivity"
-            android:exported="false"
-            android:label=""
-            android:theme="@style/EasyPermissions.Transparent"/>
-    </application>
+    <application></application>
 
 </manifest>

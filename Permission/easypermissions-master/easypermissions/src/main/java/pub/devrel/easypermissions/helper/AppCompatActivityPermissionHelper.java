@@ -26,11 +26,6 @@ class AppCompatActivityPermissionHelper extends BaseSupportPermissionsHelper<App
     }
 
     @Override
-    public boolean shouldShowRequestPermissionRationale(@NonNull String perm) {
-        return ActivityCompat.shouldShowRequestPermissionRationale(getHost(), perm);
-    }
-
-    @Override
     public Context getContext() {
         return getHost();
     }

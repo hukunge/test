@@ -25,11 +25,6 @@ class SupportFragmentPermissionHelper extends BaseSupportPermissionsHelper<Fragm
     }
 
     @Override
-    public boolean shouldShowRequestPermissionRationale(@NonNull String perm) {
-        return getHost().shouldShowRequestPermissionRationale(perm);
-    }
-
-    @Override
     public Context getContext() {
         return getHost().getActivity();
     }

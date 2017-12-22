@@ -30,12 +30,6 @@ class FrameworkFragmentPermissionHelper extends BaseFrameworkPermissionsHelper<F
     }
 
     @Override
-    @SuppressLint("NewApi")
-    public boolean shouldShowRequestPermissionRationale(@NonNull String perm) {
-        return getHost().shouldShowRequestPermissionRationale(perm);
-    }
-
-    @Override
     public Context getContext() {
         return getHost().getActivity();
     }

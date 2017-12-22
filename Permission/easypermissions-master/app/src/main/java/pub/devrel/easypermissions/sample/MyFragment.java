@@ -29,7 +29,6 @@ public class MyFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 EasyPermissions.of(MyFragment.this)
-                        .rationale("rationale")
                         .reqCode(RequestCode.CAMERA)
                         .perms(Manifest.permission.CAMERA)
                         .callBack(new PermissionInfo() {
@@ -42,7 +41,7 @@ public class MyFragment extends Fragment {
                             public void onDenied(List<String> perms) {
                                 Toast.makeText(getContext(), "onDenied", Toast.LENGTH_SHORT).show();
                             }
-                        }).request();
+                        });
             }
         });
 

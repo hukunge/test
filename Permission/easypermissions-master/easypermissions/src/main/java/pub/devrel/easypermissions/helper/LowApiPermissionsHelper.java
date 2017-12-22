@@ -18,16 +18,6 @@ class LowApiPermissionsHelper extends PermissionHelper<Object> {
     }
 
     @Override
-    public boolean shouldShowRequestPermissionRationale(@NonNull String perm) {
-        return false;
-    }
-
-    @Override
-    public void showRequestPermissionRationale(@NonNull String rationale, int requestCode, @NonNull String... perms) {
-        throw new IllegalStateException("Should never be requesting permissions on API < 23!");
-    }
-
-    @Override
     public Context getContext() {
         return null;
     }

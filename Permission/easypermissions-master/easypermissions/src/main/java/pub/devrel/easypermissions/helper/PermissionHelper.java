@@ -49,47 +49,12 @@ public abstract class PermissionHelper<T> {
         return new FrameworkFragmentPermissionHelper(host);
     }
 
-    // ============================================================================
-    // Public concrete methods
-    // ============================================================================
-
     public PermissionHelper(@NonNull T host) {
         mHost = host;
     }
 
-    public boolean shouldShowRationale(@NonNull String... perms) {
-        for (String perm : perms) {
-            if (shouldShowRequestPermissionRationale(perm)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public void requestPermissions(@NonNull String rationale, int requestCode, @NonNull String... perms) {
-        if (shouldShowRationale(perms)) {
-            showRequestPermissionRationale(rationale, requestCode, perms);
-        } else {
-            directRequestPermissions(requestCode, perms);
-        }
-    }
-
-    public boolean somePermissionPermanentlyDenied(@NonNull List<String> perms) {
-        for (String deniedPermission : perms) {
-            if (permissionPermanentlyDenied(deniedPermission)) {
-                return true;
-            }
-        }
-
-        return false;
-    }
-
-    public boolean permissionPermanentlyDenied(@NonNull String perms) {
-        return !shouldShowRequestPermissionRationale(perms);
-    }
-
-    public boolean somePermissionDenied(@NonNull String... perms) {
-        return shouldShowRationale(perms);
+    public void requestPermissions(int requestCode, @NonNull String... perms) {
+        directRequestPermissions(requestCode, perms);
     }
 
     @NonNull
@@ -97,15 +62,7 @@ public abstract class PermissionHelper<T> {
         return mHost;
     }
 
-    // ============================================================================
-    // Public abstract methods
-    // ============================================================================
-
     public abstract void directRequestPermissions(int requestCode, @NonNull String... perms);
-
-    public abstract boolean shouldShowRequestPermissionRationale(@NonNull String perm);
-
-    public abstract void showRequestPermissionRationale(@NonNull String rationale, int requestCode, @NonNull String... perms);
 
     public abstract Context getContext();
 

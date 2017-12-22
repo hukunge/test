@@ -2,11 +2,15 @@ package pub.devrel.easypermissions;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Build;
+import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -18,9 +22,9 @@ import pub.devrel.easypermissions.my.PermBean;
 import pub.devrel.easypermissions.my.PermissionInfo;
 
 public class EasyPermissions {
+    private static final int APP_SETTINGS_RC = 7534;
     private static List<PermBean> permList = new ArrayList<>();
     private int requestCode;
-    private String rationale;
     private String[] p;
     private PermissionHelper helper;
 
@@ -49,11 +53,6 @@ public class EasyPermissions {
     }
 
     //必选/////////////////////////////////////////////////////////////////////////////////////////////////////
-    public EasyPermissions rationale(String rationale) {
-        this.rationale = rationale;
-        return this;
-    }
-
     public EasyPermissions perms(@NonNull String... perms){
          p = perms;
          return this;
@@ -64,20 +63,17 @@ public class EasyPermissions {
         return this;
     }
 
-    public EasyPermissions callBack(PermissionInfo info) {
+    public void callBack(PermissionInfo info) {
         PermBean b = new PermBean();
         b.requestCode = requestCode;
         b.info = info;
         permList.add(b);
-        return this;
+
+        request(helper, requestCode, p);
     }
 
-    public void request() {
-        request(helper, rationale, requestCode, p);
-    }
     //必选/////////////////////////////////////////////////////////////////////////////////////////////////////
-
-    private static void request(@NonNull PermissionHelper helper, @NonNull String rationale, int requestCode, @NonNull String... perms) {
+    private static void request(@NonNull PermissionHelper helper, int requestCode, @NonNull String... perms) {
         if (hasPermissions(helper.getContext(), perms)) {
             for (PermBean pb : permList) {
                 if (pb.requestCode == requestCode) {
@@ -90,7 +86,7 @@ public class EasyPermissions {
         }
 
         // Request permissions
-        helper.requestPermissions(rationale, requestCode, perms);
+        helper.requestPermissions(requestCode, perms);
     }
 
     public static boolean hasPermissions(Context context, @NonNull String... perms) {
@@ -132,12 +128,18 @@ public class EasyPermissions {
                     if (denied.isEmpty()) {
                         pi.onGranted(granted);
                     } else {
-                        pi.onDenied(granted);
+                        pi.onDenied(denied);
                     }
 
                     break;
                 }
             }
         }
+    }
+
+    public static void toSettingAct(Activity act){
+        act.startActivityForResult(
+                new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS).setData(Uri.fromParts("package", act.getPackageName(), null)),
+                APP_SETTINGS_RC);
     }
 }
