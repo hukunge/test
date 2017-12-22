@@ -2,7 +2,6 @@ package pub.devrel.easypermissions.sample;
 
 import android.Manifest;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,7 +11,6 @@ import java.util.List;
 
 import pub.devrel.easypermissions.EasyPermissions;
 import pub.devrel.easypermissions.my.PermissionInfo;
-import pub.devrel.easypermissions.my.RequestCode;
 
 /**
  * Created by Kellan on 2017/11/16.
@@ -29,7 +27,7 @@ public class MyFragment extends BaseFragment {
             @Override
             public void onClick(View v) {
                 EasyPermissions.of(MyFragment.this)
-                        .reqCode(RequestCode.CAMERA)
+                        .reqCode(113)
                         .perms(Manifest.permission.CAMERA)
                         .callBack(new PermissionInfo() {
                             @Override

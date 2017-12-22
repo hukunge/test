@@ -10,7 +10,6 @@ import java.util.List;
 
 import pub.devrel.easypermissions.EasyPermissions;
 import pub.devrel.easypermissions.my.PermissionInfo;
-import pub.devrel.easypermissions.my.RequestCode;
 
 /**
  * Created by Kellan on 2017/11/14.
@@ -27,7 +26,7 @@ public class MyActivity extends BaseActivity {
     public void clickCamera(View view) {
 
         EasyPermissions.of(this)
-                .reqCode(RequestCode.CAMERA)
+                .reqCode(111)
                 .perms(Manifest.permission.CAMERA)
                 .callBack(new PermissionInfo() {
                     @Override
@@ -56,7 +55,7 @@ public class MyActivity extends BaseActivity {
         String[] LOCATION_AND_CONTACTS = {Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.READ_CONTACTS};
 
         EasyPermissions.of(this)
-                .reqCode(RequestCode.LOC_CONT)
+                .reqCode(112)
                 .perms(LOCATION_AND_CONTACTS)
                 .callBack(new PermissionInfo() {
                     @Override
