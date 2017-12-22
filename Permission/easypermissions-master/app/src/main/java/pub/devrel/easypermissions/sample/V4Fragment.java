@@ -16,17 +16,17 @@ import pub.devrel.easypermissions.my.PermissionInfo;
  * Created by Kellan on 2017/11/16.
  */
 
-public class MyFragment extends BaseFragment {
+public class V4Fragment extends BaseV4Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
-        View v = inflater.inflate(R.layout.fragment_main, container);
+        View v = inflater.inflate(R.layout.fragment_v4, container);
 
         v.findViewById(R.id.button_sms).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                EasyPermissions.of(MyFragment.this)
+                EasyPermissions.of(V4Fragment.this)
                         .reqCode(113)
                         .perms(Manifest.permission.CAMERA)
                         .callBack(new PermissionInfo() {

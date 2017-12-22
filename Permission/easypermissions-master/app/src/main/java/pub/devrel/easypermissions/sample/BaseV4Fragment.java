@@ -9,7 +9,7 @@ import pub.devrel.easypermissions.EasyPermissions;
  * Created by Administrator on 2017/12/22.
  */
 
-public class BaseFragment extends Fragment{
+public class BaseV4Fragment extends Fragment{
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {

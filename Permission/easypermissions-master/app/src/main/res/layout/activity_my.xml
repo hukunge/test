@@ -25,9 +25,16 @@
         android:onClick="clickLocContacts"/>
 
     <fragment
-        android:id="@+id/fragment"
-        android:name="pub.devrel.easypermissions.sample.MyFragment"
+        android:id="@+id/fragment_v4"
+        android:name="pub.devrel.easypermissions.sample.V4Fragment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:layout="@layout/fragment_main" />
+        tools:layout="@layout/fragment_v4" />
+
+    <fragment
+        android:id="@+id/fragment_app"
+        android:name="pub.devrel.easypermissions.sample.AppFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:layout="@layout/fragment_v4" />
 </LinearLayout>
