@@ -43,7 +43,6 @@ public class AppFragment extends BaseAppFragment{
                         });
             }
         });
-
         return v;
     }
 }
