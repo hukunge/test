@@ -18,7 +18,7 @@ import pub.devrel.easypermissions.my.RequestCode;
  * Created by Kellan on 2017/11/16.
  */
 
-public class MyFragment extends Fragment {
+public class MyFragment extends BaseFragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

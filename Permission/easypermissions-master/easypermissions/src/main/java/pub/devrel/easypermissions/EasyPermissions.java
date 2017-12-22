@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.List;
 
 import pub.devrel.easypermissions.helper.PermissionHelper;
@@ -107,8 +108,7 @@ public class EasyPermissions {
         return true;
     }
 
-    public static void onResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults, @NonNull Object... receivers) {
-        // Make a collection of granted and denied permissions from the request.
+    public static void onResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         List<String> granted = new ArrayList<>();
         List<String> denied = new ArrayList<>();
         for (int i = 0; i < permissions.length; i++) {
@@ -120,19 +120,25 @@ public class EasyPermissions {
             }
         }
 
-        for (Object object : receivers) {
-            for (PermBean pb : permList) {
-                if (pb.requestCode == requestCode) {
-                    PermissionInfo pi = pb.info;
+        for (PermBean pb : permList) {
+            if (pb.requestCode == requestCode) {
+                PermissionInfo pi = pb.info;
 
-                    if (denied.isEmpty()) {
-                        pi.onGranted(granted);
-                    } else {
-                        pi.onDenied(denied);
-                    }
-
-                    break;
+                if (denied.isEmpty()) {
+                    pi.onGranted(granted);
+                } else {
+                    pi.onDenied(denied);
                 }
+
+                break;
+            }
+        }
+
+        Iterator<PermBean> it = permList.iterator();
+        while(it.hasNext()){
+            PermBean e = it.next();
+            if(e.requestCode == requestCode){
+                it.remove();
             }
         }
     }
