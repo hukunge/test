@@ -14,6 +14,6 @@
     </string>
     <string name="camera">Camera</string>
     <string name="location_and_contacts">Location and Contacts</string>
-    <string name="v4_SMS">v4_SMS</string>
-    <string name="app_SMS">app_SMS</string>
+    <string name="v4_SMS">fragment_v4_SMS</string>
+    <string name="app_SMS">fragment_app_SMS</string>
 </resources>
