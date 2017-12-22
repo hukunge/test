@@ -56,7 +56,7 @@ public class MyActivity extends BaseActivity {
         String[] LOCATION_AND_CONTACTS = {Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.READ_CONTACTS};
 
         EasyPermissions.of(this)
-                .reqCode(RequestCode.All)
+                .reqCode(RequestCode.LOC_CONT)
                 .perms(LOCATION_AND_CONTACTS)
                 .callBack(new PermissionInfo() {
                     @Override
@@ -73,7 +73,7 @@ public class MyActivity extends BaseActivity {
                     public void onDenied(List<String> perms) {
                         StringBuilder sb = new StringBuilder();
                         for (String per : perms){
-                            sb.append(per + " ");
+                            sb.append(per + "\n\n");
                         }
 
                         Toast.makeText(MyActivity.this, "onDenied " + sb.toString().trim(), Toast.LENGTH_SHORT).show();

@@ -5,7 +5,7 @@ package pub.devrel.easypermissions.my;
  */
 
 public interface RequestCode {
-    int All = 0x100;
+    int LOC_CONT = 0x100;
 
     int CAMERA = 0x101;
 }
