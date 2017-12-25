@@ -1,5 +1,0 @@
-include ':app'
-
-
-include ':Crop'
-project(':Crop').projectDir = new File('../Crop')
